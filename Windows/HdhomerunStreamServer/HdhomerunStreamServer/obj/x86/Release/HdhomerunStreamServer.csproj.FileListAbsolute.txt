@@ -1,0 +1,11 @@
+D:\Development\HdhomerunStreamServer\Windows\HdhomerunStreamServer\HdhomerunStreamServer\bin\Release\Hdhomerun Signal Meter Server.exe
+D:\Development\HdhomerunStreamServer\Windows\HdhomerunStreamServer\HdhomerunStreamServer\bin\Release\Hdhomerun Signal Meter Server.pdb
+D:\Development\HdhomerunStreamServer\Windows\HdhomerunStreamServer\HdhomerunStreamServer\obj\x86\Release\MainWindow.baml
+D:\Development\HdhomerunStreamServer\Windows\HdhomerunStreamServer\HdhomerunStreamServer\obj\x86\Release\MainWindow.g.cs
+D:\Development\HdhomerunStreamServer\Windows\HdhomerunStreamServer\HdhomerunStreamServer\obj\x86\Release\App.g.cs
+D:\Development\HdhomerunStreamServer\Windows\HdhomerunStreamServer\HdhomerunStreamServer\obj\x86\Release\Hdhomerun Signal Meter Server_MarkupCompile.cache
+D:\Development\HdhomerunStreamServer\Windows\HdhomerunStreamServer\HdhomerunStreamServer\obj\x86\Release\Hdhomerun Signal Meter Server.g.resources
+D:\Development\HdhomerunStreamServer\Windows\HdhomerunStreamServer\HdhomerunStreamServer\obj\x86\Release\WpfApplication1.Properties.Resources.resources
+D:\Development\HdhomerunStreamServer\Windows\HdhomerunStreamServer\HdhomerunStreamServer\obj\x86\Release\HdhomerunStreamServer.csproj.GenerateResource.Cache
+D:\Development\HdhomerunStreamServer\Windows\HdhomerunStreamServer\HdhomerunStreamServer\obj\x86\Release\Hdhomerun Signal Meter Server.exe
+D:\Development\HdhomerunStreamServer\Windows\HdhomerunStreamServer\HdhomerunStreamServer\obj\x86\Release\Hdhomerun Signal Meter Server.pdb
