@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Net.Sockets;
 
-namespace WpfApplication1
+namespace HdhrStreamServer
 {
     class SocketData
     {

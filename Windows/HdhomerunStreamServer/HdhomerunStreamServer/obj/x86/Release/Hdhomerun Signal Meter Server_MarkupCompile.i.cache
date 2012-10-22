@@ -5,10 +5,10 @@ winexe
 C#
 .cs
 D:\Development\HdhomerunStreamServer\Windows\HdhomerunStreamServer\HdhomerunStreamServer\obj\x86\Release\
-WpfApplication1
+HdhrStreamServer
 none
 false
-TRACE
+CODE_ANALYSIS;TRACE
 D:\Development\HdhomerunStreamServer\Windows\HdhomerunStreamServer\HdhomerunStreamServer\App.xaml
 11151548125
 

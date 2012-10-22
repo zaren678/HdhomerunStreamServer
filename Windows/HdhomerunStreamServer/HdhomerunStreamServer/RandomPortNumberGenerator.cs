@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 
-namespace WpfApplication1
+namespace HdhrStreamServer
 {
     public sealed class RandomPortGenerator
     {

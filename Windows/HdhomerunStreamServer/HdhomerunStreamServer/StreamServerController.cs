@@ -6,7 +6,7 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using System.Net.Sockets;
 
-namespace WpfApplication1
+namespace HdhrStreamServer
 {
     class StreamServerController
     {
@@ -240,19 +240,29 @@ namespace WpfApplication1
             ServerStreamingStopped();
         }
 
+
+
         private string buildVlcArguments()
         {
             StringBuilder cmdList = new StringBuilder();
+            //cmdList.Append("--file-logging ");
+            //cmdList.Append("--log-verbose=-1 ");
+            //cmdList.Append("--logmode=html ");
+            //cmdList.Append("--logfile=" + System.IO.Directory.GetCurrentDirectory() + "\\log.html ");
+            cmdList.Append("--no-crashdump ");
+            cmdList.Append("--sout-ffmpeg-strict=-2 ");
             cmdList.Append("-V dummy ");
             cmdList.Append("-I dummy ");
             cmdList.Append("-vvv ");
             cmdList.Append("udp://@:" + VideoInputPort + " ");
             cmdList.Append("--audio-desync=-50 ");
+            //cmdList.Append("--network-caching=4096 ");
+            //cmdList.Append("--udp-caching=4096 ");
             cmdList.Append("--no-sout-rtp-sap ");
-            cmdList.Append("--sout-rtp-caching=2000 "); //TODO supposedly should do something with this for different bitrates but not sure what yet
-            cmdList.Append("--sout-rtp-sdp=rtsp://0.0.0.0:" + VideoOutputPort + "/test.sdp ");
+            cmdList.Append("--sout-rtp-caching=3000 "); //TODO supposedly should do something with this for different bitrates but not sure what yet
+            cmdList.Append("--sout-rtp-sdp=rtsp://:" + VideoOutputPort + "/test.sdp ");
             cmdList.Append("--sout-rtp-mp4a-latm ");
-            cmdList.Append("--sout-transcode-threads=4 ");
+            cmdList.Append("--sout-transcode-threads=" + Environment.ProcessorCount + " " );
             cmdList.Append("--sout-transcode-high-priority ");
             cmdList.Append("--sout-keep ");
             cmdList.Append("--sout-transcode-venc=x264 ");
@@ -287,9 +297,11 @@ namespace WpfApplication1
             cmdList.Append("--canvas-padd ");
             //cmdList.Append("--canvas-pAppend ");
             cmdList.Append("--sout-transcode-soverlay ");
+            
             cmdList.Append("--sout-transcode-aenc=ffmpeg ");
             cmdList.Append("--sout-ffmpeg-aac-profile=low ");
             cmdList.Append("--sout-transcode-acodec=mp4a ");
+            cmdList.Append("--sout-transcode-samplerate=44100 ");
             cmdList.Append("--sout-transcode-ab=128 ");
             cmdList.Append("--sout-transcode-channels=2 ");
             cmdList.Append("--sout-transcode-audio-sync ");

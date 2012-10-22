@@ -6,7 +6,7 @@ using System.Threading;
 using System.Net;
 using System.Net.Sockets;
 
-namespace WpfApplication1
+namespace HdhrStreamServer
 {
     class AsyncSocketServer
     {
