@@ -260,7 +260,7 @@ namespace HdhrStreamServer
             //cmdList.Append("--udp-caching=4096 ");
             cmdList.Append("--no-sout-rtp-sap ");
             cmdList.Append("--sout-rtp-caching=3000 "); //TODO supposedly should do something with this for different bitrates but not sure what yet
-            cmdList.Append("--sout-rtp-sdp=rtsp://:" + VideoOutputPort + "/test.sdp ");
+            cmdList.Append("--sout-rtp-sdp=rtsp://:" + VideoOutputPort + "/stream.sdp ");
             cmdList.Append("--sout-rtp-mp4a-latm ");
             cmdList.Append("--sout-transcode-threads=" + Environment.ProcessorCount + " " );
             cmdList.Append("--sout-transcode-high-priority ");
