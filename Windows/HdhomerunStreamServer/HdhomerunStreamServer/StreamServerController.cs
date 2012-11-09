@@ -321,6 +321,11 @@ namespace HdhrStreamServer
 
                 vlcExe = getRegistryStringKey("SOFTWARE\\VideoLAN\\VLC", "");
 
+                if (!System.IO.File.Exists(vlcExe))
+                {
+                    throw new ViewerNotFoundException("Viewer not found");
+                }
+
                 System.Console.WriteLine("VLC: " + vlcExe);
 
                 String vlcVersion = getRegistryStringKey("SOFTWARE\\VideoLAN\\VLC", "Version");
