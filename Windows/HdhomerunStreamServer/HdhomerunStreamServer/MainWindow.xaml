@@ -1,12 +1,28 @@
 ﻿<Window x:Class="HdhrStreamServer.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Hdhomerun Signal Meter Server" Height="145" Width="349">
-    <Grid>
-        <Button Content="Start" Height="23" HorizontalAlignment="Left" Margin="12,12,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="Start_Click" />
-        <Button Content="Stop" Height="23" HorizontalAlignment="Left" Margin="12,41,0,0" Name="button2" VerticalAlignment="Top" Width="75" Click="Stop_Click" />
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,70,0,0" Name="StatusText" Text="Not Running" VerticalAlignment="Top" Width="75" TextAlignment="Center" IsHitTestVisible="False" />
-        <Label Content="ControlPort" Height="27" HorizontalAlignment="Left" Margin="112,12,0,0" Name="label1" VerticalAlignment="Top" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="189,12,0,0" Name="controlPortTextBox" VerticalAlignment="Top" Width="120" Text="5454" AcceptsReturn="True" TextChanged="controlPortTextBox_TextChanged" />
+        Title="Hdhomerun Signal Meter Server 1.0.1.12345" Height="103" Width="323" Closed="Window_Closed_1" MinWidth="430" MinHeight="140">
+    <Grid Margin="3">        
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="206*"/>
+            <ColumnDefinition Width="69*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Button Content="Start" Height="23" HorizontalAlignment="Left" Margin="6,6,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="Start_Click" />
+        <Button Content="Stop" Height="23" HorizontalAlignment="Left" Margin="6,6,0,0" Name="button2" VerticalAlignment="Top" Width="75" Click="Stop_Click" Grid.Row="1" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,6,0,0" Name="StatusText" Text="Not Running" VerticalAlignment="Top" Width="75" TextAlignment="Center" IsHitTestVisible="False" Grid.Row="2" />
+        <Label Content="ControlPort" Height="27" HorizontalAlignment="Left" Margin="3,6,0,0" Name="label1" VerticalAlignment="Top" Grid.Column="1" Width="71" />
+        <TextBox Height="23" Margin="6,6,6,0" Name="controlPortTextBox" VerticalAlignment="Top" Text="" AcceptsReturn="True" TextChanged="controlPortTextBox_TextChanged" Grid.Column="2" MinWidth="120" />
+        <TextBox x:Name="vlcPathTextBox" Height="23" Margin="6,6,6,0" Text="" VerticalAlignment="Top" MaxLines="1" MinWidth="120" Grid.Row="1" Grid.Column="2"/>
+        <Label Content="VLC Path" HorizontalAlignment="Left" Margin="3,6,0,0" VerticalAlignment="Top" Width="71" Grid.Row="1" Grid.Column="1" Height="26"/>
+        <Button x:Name="browseVlcButton" Content="Browse" Margin="6,6,0,0" VerticalAlignment="Top" Height="23" Click="browseVlcButton_Click" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="3" Padding="5,1,5,2"/>        
     </Grid>
 </Window>

@@ -208,11 +208,6 @@ namespace HdhrStreamServer
 
         private void startVLC()
         {
-            if (vlcExe == null)
-            {
-                FindViewer();
-            }
-
             ProcessStartInfo start = new ProcessStartInfo();
 
             start.FileName = vlcExe;
@@ -220,11 +215,16 @@ namespace HdhrStreamServer
 
             
             stopVLC();
-            
 
-            vlcProcess = Process.Start(start);
-
-            ServerStreaming();
+            try
+            {
+                vlcProcess = Process.Start(start);
+                ServerStreaming();
+            }
+            catch (System.ComponentModel.Win32Exception aException)
+            {
+                System.Windows.MessageBox.Show("Failed to start VLC. Please check the VLC Path\nError: " + aException.Message, "Error", System.Windows.MessageBoxButton.OK);
+            }            
         }
 
         private void stopVLC()
@@ -311,63 +311,7 @@ namespace HdhrStreamServer
             System.Console.WriteLine(cmdList.ToString());
 
             return cmdList.ToString();
-        }
-
-        public void FindViewer() 
-        {
-            try
-            {
-                RegistryKey vlcKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\VideoLAN\\VLC");
-
-                vlcExe = getRegistryStringKey("SOFTWARE\\VideoLAN\\VLC", "");
-
-                if (!System.IO.File.Exists(vlcExe))
-                {
-                    throw new ViewerNotFoundException("Viewer not found");
-                }
-
-                System.Console.WriteLine("VLC: " + vlcExe);
-
-                String vlcVersion = getRegistryStringKey("SOFTWARE\\VideoLAN\\VLC", "Version");
-
-                System.Console.WriteLine("VLC version: " + vlcVersion);
-
-                if (vlcVersion.Equals("2.0.1"))
-                {
-                    throw new BadVlcVersionException("VLC version 2.0.1 had an issue with H.264 encoding.\nPlease install a different version of VLC");
-                }
-            }
-            catch (RegistryKeyException e)
-            {
-                throw new ViewerNotFoundException(e.Message);
-            }
-        }
-
-        private String getRegistryStringKey(String regKey, String key)
-        {
-            RegistryKey openedkey = Registry.LocalMachine.OpenSubKey(regKey);
-
-            if (openedkey == null)
-            {
-                throw new RegistryKeyException("VLC Not found error: Registry Key Not found");
-            }
-
-            RegistryValueKind versionType = openedkey.GetValueKind("Version");
-
-            if (versionType != RegistryValueKind.String)
-            {
-                throw new RegistryKeyException("VLC Not found error: Registry key type not a string");
-            }
-
-            Object value = openedkey.GetValue(key);
-
-            if (value == null)
-            {
-                throw new RegistryKeyException("VLC Not found error: Registry key value was empty");
-            }
-
-            return (String)value;
-        }
+        }               
 
         public void Stop()
         {
@@ -379,6 +323,11 @@ namespace HdhrStreamServer
             }
 
             ServerStopped();
+        }
+
+        public void setViewer( string aPath )
+        {
+            vlcExe = aPath;
         }
     }
 
