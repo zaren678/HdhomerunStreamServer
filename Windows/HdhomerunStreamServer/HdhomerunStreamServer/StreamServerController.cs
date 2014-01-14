@@ -231,10 +231,18 @@ namespace HdhrStreamServer
         {
             if (vlcProcess != null)
             {
-                vlcProcess.Kill();
-                vlcProcess.WaitForExit();
-
-                vlcProcess = null;
+                try
+                {
+                    vlcProcess.Kill();
+                    vlcProcess.WaitForExit();
+                }
+                catch (InvalidOperationException)
+                {
+                }
+                finally
+                {
+                    vlcProcess = null;
+                }
             }
 
             ServerStreamingStopped();
@@ -266,7 +274,7 @@ namespace HdhrStreamServer
             cmdList.Append("--sout-transcode-high-priority ");
             cmdList.Append("--sout-keep ");
             cmdList.Append("--sout-transcode-venc=x264 ");
-            cmdList.Append("--sout-x264-profile=basline ");
+            cmdList.Append("--sout-x264-profile=baseline ");
             cmdList.Append("--sout-x264-level=3 ");
             cmdList.Append("--sout-x264-keyint=50 ");
             cmdList.Append("--sout-x264-bframes=0 ");
